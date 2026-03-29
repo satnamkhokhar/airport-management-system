@@ -1,4 +1,4 @@
-# Airport Operations & Passenger Management System — Backend
+# Airport Operations & Passenger Management System
 
 Node.js + Express + TypeScript backend for the Airport Operations system.
 MySQL runs in Docker. All API endpoints documented below.
