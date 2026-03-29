@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: airport_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: airport_db
+      MYSQL_USER: airport_user
+      MYSQL_PASSWORD: airport_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - airport_mysql_data:/var/lib/mysql
+      - ./src/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "airport_user", "-pairport_pass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  airport_mysql_data:
