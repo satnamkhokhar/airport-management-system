@@ -206,30 +206,7 @@ export function getAppMarkup() {
           <p class="panel-note">Each form sends data to the backend and refreshes the related records.</p>
         </div>
         <div class="form-grid">
-          <form class="create-card" id="airport-create-form">
-            <h3>Add airport</h3>
-            <label><span>Name</span><input name="Name" required /></label>
-            <label><span>Location</span><input name="Location" required /></label>
-            <label><span>IATA code</span><input name="IATACode" maxlength="3" required /></label>
-            <button class="primary-button" type="submit">Create airport</button>
-          </form>
-
-          <form class="create-card" id="gate-create-form">
-            <h3>Add gate</h3>
-            <label><span>Gate number</span><input name="GateNumber" required /></label>
-            <label><span>Airport</span><select name="AirportID" id="gate-airport-select"></select></label>
-            <button class="primary-button" type="submit">Create gate</button>
-          </form>
-
-          <form class="create-card" id="aircraft-create-form">
-            <h3>Add aircraft</h3>
-            <label><span>Tail number</span><input name="TailNumber" required /></label>
-            <label><span>Model</span><input name="Model" required /></label>
-            <label><span>Capacity</span><input name="Capacity" type="number" min="1" required /></label>
-            <button class="primary-button" type="submit">Create aircraft</button>
-          </form>
-
-          <form class="create-card" id="flight-create-form">
+          <form class="create-card create-card-featured" id="flight-create-form">
             <h3>Schedule flight</h3>
             <label><span>Flight number</span><input name="FlightNumber" required /></label>
             <label><span>Airline</span><input name="Airline" maxlength="5" required /></label>
@@ -243,11 +220,12 @@ export function getAppMarkup() {
             <button class="primary-button" type="submit">Create flight</button>
           </form>
 
-          <form class="create-card" id="passenger-create-form">
-            <h3>Add passenger</h3>
-            <label><span>First name</span><input name="FirstName" required /></label>
-            <label><span>Last name</span><input name="LastName" required /></label>
-            <button class="primary-button" type="submit">Create passenger</button>
+          <form class="create-card" id="airport-create-form">
+            <h3>Add airport</h3>
+            <label><span>Name</span><input name="Name" required /></label>
+            <label><span>Location</span><input name="Location" required /></label>
+            <label><span>IATA code</span><input name="IATACode" maxlength="3" required /></label>
+            <button class="primary-button" type="submit">Create airport</button>
           </form>
 
           <form class="create-card" id="ticket-create-form">
@@ -264,6 +242,28 @@ export function getAppMarkup() {
             <label><span>Status</span><select name="Status">${baggageStatuses.map((status) => `<option value="${status}">${status}</option>`).join('')}</select></label>
             <label><span>Ticket</span><select name="TicketID" id="baggage-ticket-select"></select></label>
             <button class="primary-button" type="submit">Create baggage record</button>
+          </form>
+
+          <form class="create-card" id="aircraft-create-form">
+            <h3>Add aircraft</h3>
+            <label><span>Tail number</span><input name="TailNumber" required /></label>
+            <label><span>Model</span><input name="Model" required /></label>
+            <label><span>Capacity</span><input name="Capacity" type="number" min="1" required /></label>
+            <button class="primary-button" type="submit">Create aircraft</button>
+          </form>
+
+          <form class="create-card" id="passenger-create-form">
+            <h3>Add passenger</h3>
+            <label><span>First name</span><input name="FirstName" required /></label>
+            <label><span>Last name</span><input name="LastName" required /></label>
+            <button class="primary-button" type="submit">Create passenger</button>
+          </form>
+
+          <form class="create-card" id="gate-create-form">
+            <h3>Add gate</h3>
+            <label><span>Gate number</span><input name="GateNumber" required /></label>
+            <label><span>Airport</span><select name="AirportID" id="gate-airport-select"></select></label>
+            <button class="primary-button" type="submit">Create gate</button>
           </form>
         </div>
       </section>

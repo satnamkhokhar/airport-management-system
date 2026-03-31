@@ -298,6 +298,11 @@ label span {
   gap: 16px;
 }
 
+.form-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+}
+
 .tool-card,
 .create-card,
 .result-card,
@@ -312,6 +317,45 @@ label span {
 .create-card {
   display: grid;
   gap: 12px;
+}
+
+.create-card {
+  align-content: start;
+}
+
+.form-grid > .create-card {
+  grid-column: span 4;
+}
+
+.create-card-featured {
+  grid-column: span 8;
+}
+
+.create-card-featured {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 14px;
+  row-gap: 12px;
+}
+
+.create-card-featured h3,
+.create-card-featured .primary-button {
+  grid-column: 1 / -1;
+}
+
+.create-card-featured .primary-button {
+  margin-top: 4px;
+}
+
+.create-card-featured label:last-of-type {
+  grid-column: 1 / -1;
+}
+
+#actions .form-grid {
+  grid-auto-flow: dense;
+}
+
+#actions .create-card h3 {
+  min-height: 0;
 }
 
 .tool-card h3,
@@ -499,6 +543,15 @@ tbody tr:hover td {
   .result-grid,
   .form-grid,
   .dataset-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid > .create-card,
+  .create-card-featured {
+    grid-column: auto;
+  }
+
+  .create-card-featured {
     grid-template-columns: 1fr;
   }
 

@@ -1,7 +1,11 @@
 # Airport Operations & Passenger Management System
 
-Node.js + Express + TypeScript backend for the Airport Operations system.
-MySQL runs in Docker. All API endpoints documented below.
+Full-stack airport management system with:
+- Node.js + Express + TypeScript backend
+- Vite frontend admin dashboard
+- MySQL database running in Docker
+
+The frontend connects to the backend API and provides operational views for flights, gates, passengers, tickets, baggage, and airport traffic analytics.
 
 ---
 
@@ -10,6 +14,7 @@ MySQL runs in Docker. All API endpoints documented below.
 ### 1. Install dependencies
 ```bash
 npm install
+cd frontend && npm install
 ```
 
 ### 2. Configure environment
@@ -41,12 +46,35 @@ npm start
 
 Server runs at: `http://localhost:3000`
 
+### 5. Start the frontend
+```bash
+npm run dev
+```
+
+Frontend runs at: `http://localhost:5173`
+
+The frontend uses the Vite proxy in `frontend/vite.config.js` to forward `/api` and `/health` requests to the backend on port `3000`.
+
 ---
 
 ## Project Structure
 ```
-airport-backend/
+airport-management-system/
 ├── docker-compose.yml
+├── frontend/
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── public/
+│   └── src/
+│       ├── main.js
+│       ├── app.js
+│       ├── api.js
+│       ├── constants.js
+│       ├── render.js
+│       ├── template.js
+│       ├── utils.js
+│       └── style.css
 ├── package.json
 ├── tsconfig.json
 ├── .env
