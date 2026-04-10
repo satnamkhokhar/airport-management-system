@@ -16,7 +16,7 @@ services:
       - airport_mysql_data:/var/lib/mysql
       - ./src/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "airport_user", "-pairport_pass"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "airport_user", "-p airport_pass"]
       interval: 10s
       timeout: 5s
       retries: 5
