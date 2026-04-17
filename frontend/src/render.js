@@ -66,6 +66,15 @@ function baggageStatusControl(bag) {
   `
 }
 
+function recordActions(entity, recordId) {
+  return `
+    <div class="row-actions">
+      <button class="secondary-button row-action-button" data-action="edit-record" data-entity="${entity}" data-record-id="${recordId}" type="button">Edit</button>
+      <button class="ghost-button row-action-button row-action-danger" data-action="delete-record" data-entity="${entity}" data-record-id="${recordId}" type="button">Delete</button>
+    </div>
+  `
+}
+
 function setText(selector, value) {
   document.querySelector(selector).textContent = String(value)
 }
@@ -314,28 +323,33 @@ export function renderTables(state) {
     { label: 'Aircraft', render: (row) => `${escapeHtml(row.TailNumber)}<br><span class="muted">${escapeHtml(row.AircraftModel)}</span>` },
     { label: 'Gate', key: 'GateNumber' },
     { label: 'Status', render: flightStatusControl },
+    { label: 'Actions', render: (row) => recordActions('flight', row.FlightID) },
   ], 'No flights scheduled yet.')
 
   document.querySelector('#airports-table').innerHTML = createTable(state.airports, [
     { label: 'ID', key: 'AirportID' },
     { label: 'Airport', render: (row) => `<strong>${escapeHtml(row.Name)}</strong><br><span class="muted">${escapeHtml(row.Location)}</span>` },
     { label: 'IATA', key: 'IATACode' },
+    { label: 'Actions', render: (row) => recordActions('airport', row.AirportID) },
   ])
 
   document.querySelector('#gates-table').innerHTML = createTable(state.gates, [
     { label: 'Gate', key: 'GateNumber' },
     { label: 'Airport', render: (row) => `${escapeHtml(row.IATACode)}<br><span class="muted">${escapeHtml(row.AirportName)}</span>` },
+    { label: 'Actions', render: (row) => recordActions('gate', row.GateID) },
   ])
 
   document.querySelector('#aircraft-table').innerHTML = createTable(state.aircraft, [
     { label: 'Tail', key: 'TailNumber' },
     { label: 'Model', key: 'Model' },
     { label: 'Capacity', key: 'Capacity' },
+    { label: 'Actions', render: (row) => recordActions('aircraft', row.AircraftID) },
   ])
 
   document.querySelector('#passengers-table').innerHTML = createTable(state.passengers, [
     { label: 'ID', key: 'PassengerID' },
     { label: 'Passenger', render: (row) => `${escapeHtml(row.FirstName)} ${escapeHtml(row.LastName)}` },
+    { label: 'Actions', render: (row) => recordActions('passenger', row.PassengerID) },
   ])
 
   document.querySelector('#tickets-table').innerHTML = createTable(state.tickets, [
@@ -343,6 +357,7 @@ export function renderTables(state) {
     { label: 'Seat', key: 'SeatNumber' },
     { label: 'Passenger', render: (row) => `${escapeHtml(row.FirstName)} ${escapeHtml(row.LastName)}` },
     { label: 'Flight', render: (row) => `${escapeHtml(row.FlightNumber)}<br><span class="muted">${escapeHtml(row.Airline)}</span>` },
+    { label: 'Actions', render: (row) => recordActions('ticket', row.TicketID) },
   ])
 
   document.querySelector('#baggage-table').innerHTML = createTable(state.baggage, [
@@ -351,6 +366,7 @@ export function renderTables(state) {
     { label: 'Seat', key: 'SeatNumber' },
     { label: 'Weight', render: (row) => `${escapeHtml(row.Weight)} kg` },
     { label: 'Status', render: baggageStatusControl },
+    { label: 'Actions', render: (row) => recordActions('baggage', row.BaggageID) },
   ])
 }
 

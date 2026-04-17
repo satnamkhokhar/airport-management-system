@@ -319,6 +319,12 @@ label span {
   gap: 12px;
 }
 
+.form-mode-note {
+  margin: -4px 0 2px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .create-card {
   align-content: start;
 }
@@ -485,6 +491,27 @@ tbody tr:hover td {
 .ghost-button {
   padding: 10px 14px;
   white-space: nowrap;
+}
+
+.form-cancel-button {
+  background: var(--white);
+  color: var(--gsu-blue);
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.row-action-button {
+  padding: 9px 12px;
+}
+
+.row-action-danger {
+  border-color: #b42318;
+  background: #b42318;
+  color: var(--white);
 }
 
 .empty-state {

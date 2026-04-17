@@ -208,6 +208,7 @@ export function getAppMarkup() {
         <div class="form-grid">
           <form class="create-card create-card-featured" id="flight-create-form">
             <h3>Schedule flight</h3>
+            <p class="form-mode-note" data-form-note="flight">Create a new flight record.</p>
             <label><span>Flight number</span><input name="FlightNumber" required /></label>
             <label><span>Airline</span><input name="Airline" maxlength="5" required /></label>
             <label><span>Status</span><select name="Status">${flightStatuses.map((status) => `<option value="${status}">${status}</option>`).join('')}</select></label>
@@ -218,52 +219,65 @@ export function getAppMarkup() {
             <label><span>Arrival airport</span><select name="ArrivalAirportID" id="flight-arrival-select"></select></label>
             <label><span>Gate</span><select name="GateID" id="flight-gate-select"></select></label>
             <button class="primary-button" type="submit">Create flight</button>
+            <button class="ghost-button form-cancel-button" data-form-cancel="flight" type="button" hidden>Cancel edit</button>
           </form>
 
           <form class="create-card" id="airport-create-form">
             <h3>Add airport</h3>
+            <p class="form-mode-note" data-form-note="airport">Create a new airport record.</p>
             <label><span>Name</span><input name="Name" required /></label>
             <label><span>Location</span><input name="Location" required /></label>
             <label><span>IATA code</span><input name="IATACode" maxlength="3" required /></label>
             <button class="primary-button" type="submit">Create airport</button>
+            <button class="ghost-button form-cancel-button" data-form-cancel="airport" type="button" hidden>Cancel edit</button>
           </form>
 
           <form class="create-card" id="ticket-create-form">
             <h3>Issue ticket</h3>
+            <p class="form-mode-note" data-form-note="ticket">Create a new ticket record.</p>
             <label><span>Seat number</span><input name="SeatNumber" required /></label>
             <label><span>Passenger</span><select name="PassengerID" id="ticket-passenger-select"></select></label>
             <label><span>Flight</span><select name="FlightID" id="ticket-flight-select"></select></label>
             <button class="primary-button" type="submit">Create ticket</button>
+            <button class="ghost-button form-cancel-button" data-form-cancel="ticket" type="button" hidden>Cancel edit</button>
           </form>
 
           <form class="create-card" id="baggage-create-form">
             <h3>Check baggage</h3>
+            <p class="form-mode-note" data-form-note="baggage">Create a new baggage record.</p>
             <label><span>Weight</span><input name="Weight" type="number" min="0" step="0.01" required /></label>
             <label><span>Status</span><select name="Status">${baggageStatuses.map((status) => `<option value="${status}">${status}</option>`).join('')}</select></label>
             <label><span>Ticket</span><select name="TicketID" id="baggage-ticket-select"></select></label>
             <button class="primary-button" type="submit">Create baggage record</button>
+            <button class="ghost-button form-cancel-button" data-form-cancel="baggage" type="button" hidden>Cancel edit</button>
           </form>
 
           <form class="create-card" id="aircraft-create-form">
             <h3>Add aircraft</h3>
+            <p class="form-mode-note" data-form-note="aircraft">Create a new aircraft record.</p>
             <label><span>Tail number</span><input name="TailNumber" required /></label>
             <label><span>Model</span><input name="Model" required /></label>
             <label><span>Capacity</span><input name="Capacity" type="number" min="1" required /></label>
             <button class="primary-button" type="submit">Create aircraft</button>
+            <button class="ghost-button form-cancel-button" data-form-cancel="aircraft" type="button" hidden>Cancel edit</button>
           </form>
 
           <form class="create-card" id="passenger-create-form">
             <h3>Add passenger</h3>
+            <p class="form-mode-note" data-form-note="passenger">Create a new passenger record.</p>
             <label><span>First name</span><input name="FirstName" required /></label>
             <label><span>Last name</span><input name="LastName" required /></label>
             <button class="primary-button" type="submit">Create passenger</button>
+            <button class="ghost-button form-cancel-button" data-form-cancel="passenger" type="button" hidden>Cancel edit</button>
           </form>
 
           <form class="create-card" id="gate-create-form">
             <h3>Add gate</h3>
+            <p class="form-mode-note" data-form-note="gate">Create a new gate record.</p>
             <label><span>Gate number</span><input name="GateNumber" required /></label>
             <label><span>Airport</span><select name="AirportID" id="gate-airport-select"></select></label>
             <button class="primary-button" type="submit">Create gate</button>
+            <button class="ghost-button form-cancel-button" data-form-cancel="gate" type="button" hidden>Cancel edit</button>
           </form>
         </div>
       </section>
